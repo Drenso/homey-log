@@ -50,6 +50,15 @@ class MyApp extends Homey.App {
 * When running your app with `homey app run` events will not be sent to Sentry.
 
 ## Changelog
+
 ### 2.0.0
 
 This version is only SDK version 3 compatible. It now requires a different way of setting up the `Log` instance, see _Getting Started_.
+
+### 3.0.0
+
+This version has replaced the raven SDK with [@sentry/node](https://docs.sentry.io/platforms/javascript/guides/node/) version 8. If you were using the basic configuration, nothing has changed.
+
+  - If you were passing custom options, you will need to review them.
+  - If you were passing a falsy URL to disable Sentry logging you should replace that by passing the `enabled` option.
+  - `setExtra` is deprecated by Sentry and has been removed.

@@ -1,6 +1,6 @@
 {
   "name": "homey-log",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Interface with Sentry for Homey",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/athombv/node-homey-log#readme",
   "dependencies": {
-    "raven": "github:athombv/raven-node"
+    "@sentry/node": "^8.33.1"
   },
   "devDependencies": {
     "@athombv/jsdoc-template": "github:athombv/homey-jsdoc-template#v1.6.1",
