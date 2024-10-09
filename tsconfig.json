@@ -5,6 +5,7 @@
       "declaration": true,
       "emitDeclarationOnly": true,
       "esModuleInterop": true,
-      "outDir": "types"
+      "outDir": "build",
+      "skipLibCheck": true,
     }
 }
