@@ -53,6 +53,8 @@ class Log {
     this._manifest = HomeyModule.manifest;
     this._homeyVersion = homey.version;
     this._managerCloud = homey.cloud;
+    this._homeyPlatform = homey.platform;
+    this._homeyPlatformVersion = homey.platformVersion;
 
     // Init Sentry, pass enabled option to prevent sending events upstream when in debug mode
     this.init(HomeyModule.env.HOMEY_LOG_URL, { ...{ enabled: !disableSentry }, ...options });
@@ -80,6 +82,8 @@ class Log {
       appId: this._manifest.id,
       appVersion: this._manifest.version,
       homeyVersion: this._homeyVersion,
+      homeyPlatform: this._homeyPlatform,
+      homeyPlatformVersion: this._homeyPlatformVersion,
     });
 
     // Get homey cloud id and set as tag
