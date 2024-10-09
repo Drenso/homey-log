@@ -19,7 +19,7 @@ module.exports = class Log {
   /**
    * Construct a new Log instance.
    * @param {object} args
-   * @param {HomeyModule} args.homey - `this.homey` instance in
+   * @param {import('homey').default} args.homey - `this.homey` instance in
    * your app (e.g. `App#homey`/`Driver#homey`/`Device#homey`).
    *
    * @param {object} [args.options] - Additional options for Sentry
