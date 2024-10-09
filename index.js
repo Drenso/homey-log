@@ -11,7 +11,7 @@ if (!process.env.HOME) {
 const Sentry = require('@sentry/node');
 const HomeyModule = require('homey');
 
-module.exports = class Log {
+class Log {
 
   _capturedMessages = [];
   _capturedExceptions = [];
@@ -207,4 +207,6 @@ module.exports = class Log {
     }
   }
 
-};
+}
+
+module.exports = { Log };
