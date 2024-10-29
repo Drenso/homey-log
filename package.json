@@ -12,7 +12,7 @@
     "jsdoc": "jsdoc --configure ./jsdoc.json",
     "jsdoc:serve": "serve ./jsdoc",
     "jsdoc:clean": "rm -rf ./jsdoc",
-    "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" lib \"node_modules/@athombv/jsdoc-template\"",
+    "jsdoc:watch": "watch \"npm run jsdoc:clean && npm run jsdoc\" lib",
     "typings:generate": "tsc"
   },
   "repository": {
@@ -25,11 +25,10 @@
     "url": "https://github.com/athombv/node-homey-log/issues"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "homepage": "https://github.com/athombv/node-homey-log#readme",
   "devDependencies": {
-    "@athombv/jsdoc-template": "github:athombv/homey-jsdoc-template#v1.6.1",
     "@sentry/node": "^8.33.1",
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.8",
     "@types/node": "^16.18.0",
