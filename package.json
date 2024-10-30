@@ -22,12 +22,12 @@
   "author": "Athom B.V.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/athombv/node-homey-log/issues"
+    "url": "https://github.com/Drenso/homey-log/issues"
   },
   "engines": {
     "node": ">=18"
   },
-  "homepage": "https://github.com/athombv/node-homey-log#readme",
+  "homepage": "https://github.com/Drenso/homey-log#readme",
   "devDependencies": {
     "@sentry/node": "^8.33.1",
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.8",
