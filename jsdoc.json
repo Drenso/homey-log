@@ -11,10 +11,8 @@
     ]
   },
   "opts": {
-    "simpleAnalyticsHost": "sa.athom.com",
     "mainpagetitle": "Homey Log",
-    "destination": "./build",
-    "template": "./node_modules/homey-jsdoc-template"
+    "destination": "./jsdoc"
   },
   "tsUtils": {
     "typeScriptUtilityTypes": false

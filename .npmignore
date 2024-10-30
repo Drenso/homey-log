@@ -1,8 +1,9 @@
-build
-docs
-
-CONTRIBUTING.md
-.eslintrc.json
-.eslintignore
-.editorconfig
 .github
+jsdoc
+.editorconfig
+.eslintignore
+.eslintrc.json
+build.js
+index.js
+jsdoc.json
+tsconfig.json
