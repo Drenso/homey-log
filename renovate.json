@@ -1,0 +1,63 @@
+{
+  "extends": [
+    "config:recommended",
+    ":automergeDisabled",
+    ":disableDevDependencies",
+    ":labels(Maintenance,RenovateBot)"
+  ],
+  "constraints": {
+    "node": "^16",
+    "npm": "^8"
+  },
+  "dependencyDashboard": true,
+  "dependencyDashboardLabels": ["Maintenance", "RenovateBot"],
+  "commitMessagePrefix": "[RenovateBot]",
+  "internalChecksFilter": "strict",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "rebaseWhen": "auto",
+    "schedule": "before 10am on the first day of the month"
+  },
+  "npmrcMerge": true,
+  "platformAutomerge": true,
+  "rangeStrategy": "pin",
+  "rebaseWhen": "never",
+  "minimumReleaseAge": "7 days",
+  "timezone": "Europe/Amsterdam",
+  "packageRules": [
+    {
+      "matchDepTypes": [
+        "engines"
+      ],
+      "enabled": false
+    },
+    {
+      "matchPackagePrefixes": ["@drenso/"],
+      "enabled": true,
+      "rebaseWhen": "conflicted",
+      "minimumReleaseAge": null
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchPackagePrefixes": ["@types/"],
+      "rebaseWhen": "auto",
+      "automerge": true,
+      "minimumReleaseAge": null
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": ["@types/node"],
+      "enabled": false
+    },
+    {
+      "matchPackagePrefixes": ["Sentry"],
+      "matchManagers": ["nuget"],
+      "groupName": "Sentry packages",
+      "groupSlug": "sentry"
+    },
+    {
+      "matchPackagePrefixes": ["homey-"],
+      "minimumReleaseAge": null
+    }
+  ]
+}
