@@ -1,12 +1,12 @@
 # Homey Log
 
-[![npm](https://img.shields.io/npm/v/homey-log)](https://www.npmjs.com/package/homey-log) [![Lint](https://github.com/athombv/node-homey-log/actions/workflows/lint.yml/badge.svg?branch=master)](https://github.com/athombv/node-homey-log/actions/workflows/lint.yml) [![NPM](https://github.com/athombv/node-homey-log/actions/workflows/deploy.yml/badge.svg)](https://github.com/athombv/node-homey-log/actions/workflows/deploy.yml) [![Deploy Documentation To GitHub Pages](https://github.com/athombv/node-homey-log/actions/workflows/docs.yml/badge.svg?branch=master)](https://github.com/athombv/node-homey-log/actions/workflows/docs.yml)
+[![npm](https://img.shields.io/npm/v/@drenso/homey-log)](https://www.npmjs.com/package/@drenso/homey-log) [![NPM](https://github.com/Drenso/node-homey-log/actions/workflows/deploy.yml/badge.svg)](https://github.com/Drenso/node-homey-log/actions/workflows/deploy.yml) [![pages-build-deployment](https://github.com/Drenso/homey-log/actions/workflows/pages/pages-build-deployment/badge.svg?branch=master)](https://github.com/Drenso/homey-log/actions/workflows/pages/pages-build-deployment)
 
 This module can be used in a Homey App to send events to [Sentry](http://sentry.io/).
 
 ## Documentation
 
-Documentation is available at [https://athombv.github.io/node-homey-log/](https://athombv.github.io/node-homey-log/).
+Documentation is available at [https://drenso.github.io/homey-log](https://drenso.github.io/homey-log).
 
 ## Related Modules
 
@@ -18,7 +18,7 @@ Documentation is available at [https://athombv.github.io/node-homey-log/](https:
 ## Installation
 
 ```bash
-npm install --save homey-log
+npm install --save @drenso/homey-log
 ```
 
 ## Getting started
@@ -61,3 +61,7 @@ This version has replaced the raven SDK with [@sentry/node](https://docs.sentry.
 
   - If you were passing custom options, you will need to review them.
   - `setExtra` is deprecated by Sentry and has been removed.
+
+### 8.*
+
+This package will now follow the Sentry version included.
