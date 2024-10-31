@@ -35,7 +35,7 @@
     "esbuild": "^0.24.0",
     "eslint": "^7.32.0",
     "eslint-config-athom": "^2.1.1",
-    "homey": "3.7.7",
+    "homey": "3.7.11",
     "jsdoc": "^3.6.11",
     "jsdoc-ts-utils": "^1.1.2",
     "npm-watch": "^0.13.0",
