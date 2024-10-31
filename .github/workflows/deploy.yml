@@ -23,21 +23,24 @@ jobs:
           sentryVersion="$(jq -r '.devDependencies."@sentry/node"' package.json)"
           echo "version_ok=$(jq -r ".version == \"$sentryVersion\"" package.json)" >> $GITHUB_OUTPUT
           echo "sentry_version=$sentryVersion" >> $GITHUB_OUTPUT
+
   update_package_version:
     name: Update package version if Sentry was updated
     permissions:
       contents: write
     runs-on: ubuntu-latest
     needs: check_if_sentry_updated
-    if: needs.check_if_sentry_updated.outputs.version_ok == 'true'
+    if: needs.check_if_sentry_updated.outputs.version_ok == 'false'
     steps:
       - name: Checkout git repository
         uses: actions/checkout@v4
+
       - name: Set up node 18 environment
         uses: actions/setup-node@v4
         with:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
+
       - name: Update package.json, commit and push
         run: |
           updatedManifest=$(jq ".version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\"" package.json)
