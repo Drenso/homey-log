@@ -7,3 +7,4 @@ build.js
 index.js
 jsdoc.json
 tsconfig.json
+renovate.json
