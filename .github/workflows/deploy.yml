@@ -46,6 +46,8 @@ jobs:
         run: |
           updatedManifest=$(jq ".version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\"" package.json)
           echo -E "${updatedManifest}" > package.json
+          updatedLock=$(jq ".version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\" | (.packages[] | select(.name == \"@drenso/homey-log\")).version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\"" package-lock.json)
+          echo -E "${updatedLock}" > package-lock.json
           git config --global user.name 'Action User'
           git config --global user.email 'noreply@drenso.nl'
           git add package.json
