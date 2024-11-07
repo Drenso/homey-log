@@ -1,10 +1,10 @@
-.github
-jsdoc
 .editorconfig
 .eslintignore
 .eslintrc.json
-build.js
-index.js
+.github
+./build.js
+./index.js
+jsdoc
 jsdoc.json
 tsconfig.json
 renovate.json
