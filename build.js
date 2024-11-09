@@ -1,6 +1,6 @@
 'use strict';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies,node/no-unpublished-require
 const { buildSync } = require('esbuild');
 const { execSync } = require('child_process');
 

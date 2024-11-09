@@ -7,7 +7,7 @@ if (!process.env.HOME) {
   process.env.HOME = os.tmpdir();
 }
 
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies,node/no-unpublished-require
 const Sentry = require('@sentry/node');
 const HomeyModule = require('homey');
 
