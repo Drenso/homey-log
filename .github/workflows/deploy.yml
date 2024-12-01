@@ -50,7 +50,7 @@ jobs:
           echo -E "${updatedLock}" > package-lock.json
           git config --global user.name 'Action User'
           git config --global user.email 'noreply@drenso.nl'
-          git add package.json
+          git add package.json package-lock.json
           git commit -m "Bump version to ${{ needs.check_if_sentry_updated.outputs.sentry_version }}"
           git push
 
