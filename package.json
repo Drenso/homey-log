@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/Drenso/homey-log#readme",
   "devDependencies": {
-    "@sentry/node": "8.44.0",
+    "@sentry/node": "8.47.0",
     "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.10",
     "@types/node": "^16.18.0",
     "esbuild": "^0.24.0",
