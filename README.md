@@ -35,7 +35,7 @@ In `env.json`, add the Sentry URL. If you would like to send the logs to Sentry 
 In `app.js`, include the library and create a new `Log` instance:
 
 ```js
-const { Log } = require('homey-log');
+const { Log } = require('@drenso/homey-log');
 
 class MyApp extends Homey.App {
   onInit() {
