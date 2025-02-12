@@ -33,3 +33,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./jsdoc
+          keep_files: true
+          enable_jekyll: false
