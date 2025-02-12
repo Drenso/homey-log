@@ -43,6 +43,7 @@ jobs:
           path: jsdoc/
 
   deploy:
+    name: Deploy to GitHub Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
