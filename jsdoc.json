@@ -6,13 +6,13 @@
   "source": {
     "include": [
       "./README.md",
-      "./lib",
       "./index.js"
     ]
   },
   "opts": {
     "mainpagetitle": "Homey Log",
-    "destination": "./jsdoc"
+    "destination": "./jsdoc",
+    "template": "./node_modules/homey-jsdoc-template"
   },
   "tsUtils": {
     "typeScriptUtilityTypes": false
