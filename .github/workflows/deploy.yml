@@ -69,3 +69,8 @@ jobs:
         with:
           make_latest: true
           tag_name: v${{ needs.check_if_sentry_updated.outputs.sentry_version }} # update with known version
+
+      - name: Trigger docs deployment
+        run: gh workflow run docs.yml
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
