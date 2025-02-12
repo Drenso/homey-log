@@ -11,8 +11,7 @@
   },
   "opts": {
     "mainpagetitle": "Homey Log",
-    "destination": "./jsdoc",
-    "template": "./node_modules/homey-jsdoc-template"
+    "destination": "./jsdoc"
   },
   "tsUtils": {
     "typeScriptUtilityTypes": false
