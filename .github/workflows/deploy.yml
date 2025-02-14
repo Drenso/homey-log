@@ -27,6 +27,7 @@ jobs:
   update_package_version:
     name: Update package version if Sentry was updated
     permissions:
+      actions: write
       contents: write
       id-token: write
     runs-on: ubuntu-latest
