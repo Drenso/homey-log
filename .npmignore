@@ -3,8 +3,8 @@
 .eslintignore
 .eslintrc.json
 .github
-./build.js
-./index.js
+/build.js
+/index.js
 jsdoc
 jsdoc.json
 tsconfig.json
