@@ -72,7 +72,22 @@ class Log {
       ...{
         dsn,
         integrations: [
-          ...Sentry.getDefaultIntegrationsWithoutPerformance(),
+          // ...Sentry.getDefaultIntegrationsWithoutPerformance(),
+          // It is no longer possible to use the default Sentry integrations as they use features
+          // that are not available in older Node version, such as Node 12 on Homey Pro 2019.
+          // The http instrumentation uses node:diagnostics_channel,
+          // https://github.com/getsentry/sentry-javascript/commit/2e41f5ebeb40e748069111599d24149b264c78ba
+          // So, carefully only include what we need instead.
+          Sentry.eventFiltersIntegration(),
+          Sentry.functionToStringIntegration(),
+          Sentry.linkedErrorsIntegration(),
+          Sentry.requestDataIntegration(),
+          Sentry.consoleIntegration(),
+          Sentry.onUncaughtExceptionIntegration(),
+          Sentry.onUnhandledRejectionIntegration(),
+          Sentry.contextLinesIntegration(),
+          Sentry.localVariablesIntegration(),
+          Sentry.nodeContextIntegration(),
         ],
       },
       ...opts,
