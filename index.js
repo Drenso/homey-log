@@ -89,6 +89,7 @@ class Log {
           Sentry.localVariablesIntegration(),
           Sentry.nodeContextIntegration(),
         ],
+        maxBreadcrumbs: 5,
       },
       ...opts,
     });
