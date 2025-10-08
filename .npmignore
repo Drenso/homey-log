@@ -3,6 +3,8 @@
 .eslintignore
 .eslintrc.json
 .github
+/build/cjs_meta.json
+/build/esm_meta.json
 /build.js
 /index.js
 jsdoc

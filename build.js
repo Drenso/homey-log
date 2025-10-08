@@ -16,23 +16,27 @@ const defaultOptions = {
 };
 
 // CommonJS build
-buildSync({
+const cjsResult = buildSync({
   ...defaultOptions,
   ...{
     format: 'cjs',
+    metafile: true,
   },
 });
+fs.writeFileSync('build/cjs_meta.json', JSON.stringify(cjsResult.metafile));
 
 // ESM build
-buildSync({
+const esmResult = buildSync({
   ...defaultOptions,
   ...{
     format: 'esm',
     outExtension: {
       '.js': '.mjs',
     },
+    metafile: true,
   },
 });
+fs.writeFileSync('build/esm_meta.json', JSON.stringify(esmResult.metafile));
 
 // Generate types
 execSync('npm run typings:generate');
