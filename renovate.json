@@ -10,10 +10,7 @@
     "npm": "^9"
   },
   "dependencyDashboard": true,
-  "dependencyDashboardLabels": [
-    "Maintenance",
-    "RenovateBot"
-  ],
+  "dependencyDashboardLabels": ["Maintenance", "RenovateBot"],
   "commitMessagePrefix": "[RenovateBot]",
   "internalChecksFilter": "strict",
   "lockFileMaintenance": {
@@ -29,50 +26,31 @@
   "timezone": "Europe/Amsterdam",
   "packageRules": [
     {
-      "matchDepTypes": [
-        "engines"
-      ],
+      "matchDepTypes": ["engines"],
       "enabled": false
     },
     {
       "enabled": true,
       "rebaseWhen": "conflicted",
       "minimumReleaseAge": null,
-      "matchPackageNames": [
-        "@drenso/{/,}**"
-      ]
+      "matchPackageNames": ["@drenso/{/,}**"]
     },
     {
-      "matchUpdateTypes": [
-        "minor",
-        "patch",
-        "pin",
-        "digest"
-      ],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "rebaseWhen": "auto",
       "automerge": true,
       "minimumReleaseAge": null,
-      "matchPackageNames": [
-        "@types/{/,}**"
-      ]
+      "matchPackageNames": ["@types/{/,}**"]
     },
     {
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "matchPackageNames": [
-        "@types/node"
-      ],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": ["@types/node"],
       "enabled": false
     },
     {
       "enabled": true,
       "minimumReleaseAge": "1 day",
-      "matchPackageNames": [
-        "homey{/,}**",
-        "@sentry{/,}**"
-      ]
+      "matchPackageNames": ["homey{/,}**", "@sentry{/,}**"]
     }
   ]
 }

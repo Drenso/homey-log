@@ -1,13 +1,7 @@
 {
-  "plugins": [
-    "jsdoc-ts-utils",
-    "plugins/markdown"
-  ],
+  "plugins": ["jsdoc-ts-utils", "plugins/markdown"],
   "source": {
-    "include": [
-      "./README.md",
-      "./index.js"
-    ]
+    "include": ["./README.md", "./index.js"]
   },
   "opts": {
     "mainpagetitle": "Homey Log",

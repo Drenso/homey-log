@@ -1,11 +1,11 @@
 {
-    "include": ["index.mjs"],
-    "compilerOptions": {
-      "allowJs": true,
-      "declaration": true,
-      "emitDeclarationOnly": true,
-      "esModuleInterop": true,
-      "outDir": "build",
-      "skipLibCheck": true,
-    }
+  "include": ["index.mjs"],
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true,
+    "outDir": "build",
+    "skipLibCheck": true
+  }
 }

@@ -1,7 +1,7 @@
 'use strict';
 
-import {buildSync} from 'esbuild';
-import {execSync} from 'child_process';
+import { buildSync } from 'esbuild';
+import { execSync } from 'child_process';
 import fs from 'fs';
 
 const defaultOptions = {

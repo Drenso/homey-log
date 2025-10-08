@@ -10,7 +10,6 @@ if (!process.env.HOME) {
 }
 
 export class Log {
-
   _capturedMessages = [];
   _capturedExceptions = [];
 
@@ -49,7 +48,10 @@ export class Log {
     }
 
     let release;
-    if (typeof HomeyModule.env.HOMEY_LOG_SENTRY_PROJECT === 'string' && HomeyModule.env.HOMEY_LOG_SENTRY_PROJECT.length > 0) {
+    if (
+      typeof HomeyModule.env.HOMEY_LOG_SENTRY_PROJECT === 'string' &&
+      HomeyModule.env.HOMEY_LOG_SENTRY_PROJECT.length > 0
+    ) {
       release = `${HomeyModule.env.HOMEY_LOG_SENTRY_PROJECT}@${HomeyModule.manifest.version}`;
     }
 
@@ -106,7 +108,8 @@ export class Log {
     });
 
     // Get homey cloud id and set as tag
-    this._managerCloud.getHomeyId()
+    this._managerCloud
+      .getHomeyId()
       .then(homeyId => this.setTags({ homeyId }))
       .catch(err => Log._error('Error: could not get `homeyId`', err));
 
@@ -208,7 +211,7 @@ export class Log {
    * @private
    */
   static _logTime() {
-    return `\x1b[35m${(new Date()).toISOString()}\x1b[0m`;
+    return `\x1b[35m${new Date().toISOString()}\x1b[0m`;
   }
 
   /**

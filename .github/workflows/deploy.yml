@@ -13,7 +13,6 @@ jobs:
       sentry_version: ${{ steps.check.outputs.sentry_version }}
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout git repository
         uses: actions/checkout@v5
 

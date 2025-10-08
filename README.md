@@ -10,10 +10,10 @@ Documentation is available at [https://drenso.github.io/homey-log](https://drens
 
 ## Related Modules
 
-* [node-homey-zwavedriver](https://athombv.github.io/node-homey-zwavedriver) — Module for Z-Wave drivers
-* [node-homey-zigbeedriver](https://athombv.github.io/node-homey-zigbeedriver) — Module for Zigbee drivers
-* [node-homey-rfdriver](https://athombv.github.io/node-homey-rfdriver) — Module for RF (433 Mhz, 868 MHz, Infrared) drivers
-* [node-homey-oauth2app](https://athombv.github.io/node-homey-oauth2app) — Module for OAuth2 apps
+- [node-homey-zwavedriver](https://athombv.github.io/node-homey-zwavedriver) — Module for Z-Wave drivers
+- [node-homey-zigbeedriver](https://athombv.github.io/node-homey-zigbeedriver) — Module for Zigbee drivers
+- [node-homey-rfdriver](https://athombv.github.io/node-homey-rfdriver) — Module for RF (433 Mhz, 868 MHz, Infrared) drivers
+- [node-homey-oauth2app](https://athombv.github.io/node-homey-oauth2app) — Module for OAuth2 apps
 
 ## Installation
 
@@ -23,7 +23,7 @@ npm install --save @drenso/homey-log
 
 ## Getting started
 
-In `env.json`, add the Sentry URL. If you would like to send the logs to Sentry *also* during development, set force log to `1`.
+In `env.json`, add the Sentry URL. If you would like to send the logs to Sentry _also_ during development, set force log to `1`.
 
 ```json
 {
@@ -48,8 +48,8 @@ class MyApp extends Homey.App {
 
 ### Notes
 
-* When your app crashes due to an `uncaughtException` or `unhandledRejection`, this will automatically be sent to Sentry.
-* When running your app with `homey app run` events will not be sent to Sentry.
+- When your app crashes due to an `uncaughtException` or `unhandledRejection`, this will automatically be sent to Sentry.
+- When running your app with `homey app run` events will not be sent to Sentry.
 
 ## Changelog
 
@@ -61,9 +61,9 @@ This version is only SDK version 3 compatible. It now requires a different way o
 
 This version has replaced the raven SDK with [@sentry/node](https://docs.sentry.io/platforms/javascript/guides/node/) version 8. If you were using the basic configuration, nothing has changed.
 
-  - If you were passing custom options, you will need to review them.
-  - `setExtra` is deprecated by Sentry and has been removed.
+- If you were passing custom options, you will need to review them.
+- `setExtra` is deprecated by Sentry and has been removed.
 
-### 8.* / 9.*
+### 8._ / 9._
 
 This package will now follow the Sentry version included.
