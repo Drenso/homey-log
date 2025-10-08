@@ -50,6 +50,11 @@ class Log {
       Log._log('App is running in debug mode, not enabling Sentry logging');
     }
 
+    let release;
+    if (typeof HomeyModule.env.HOMEY_LOG_SENTRY_PROJECT === 'string' && HomeyModule.env.HOMEY_LOG_SENTRY_PROJECT.length > 0) {
+      release = `${HomeyModule.env.HOMEY_LOG_SENTRY_PROJECT}@${HomeyModule.manifest.version}`;
+    }
+
     this._manifest = HomeyModule.manifest;
     this._homeyVersion = homey.version;
     this._managerCloud = homey.cloud;
@@ -57,7 +62,7 @@ class Log {
     this._homeyPlatformVersion = homey.platformVersion;
 
     // Init Sentry, pass enabled option to prevent sending events upstream when in debug mode
-    this.init(HomeyModule.env.HOMEY_LOG_URL, { ...{ enabled: !disableSentry }, ...options });
+    this.init(HomeyModule.env.HOMEY_LOG_URL, { ...{ enabled: !disableSentry, release }, ...options });
   }
 
   /**

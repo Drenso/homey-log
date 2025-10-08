@@ -32,6 +32,8 @@ In `env.json`, add the Sentry URL. If you would like to send the logs to Sentry 
 }
 ```
 
+If you also set `HOMEY_LOG_SENTRY_PROJECT` this library with automatically configure the release version as `<HOMEY_LOG_SENTRY_PROJECT>@<app-version>`.
+
 In `app.js`, include the library and create a new `Log` instance:
 
 ```js
