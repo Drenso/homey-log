@@ -5,8 +5,8 @@
 .github
 /build/cjs_meta.json
 /build/esm_meta.json
-/build.js
-/index.js
+/build.mjs
+/index.mjs
 jsdoc
 jsdoc.json
 tsconfig.json

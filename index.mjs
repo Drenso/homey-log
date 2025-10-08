@@ -1,17 +1,15 @@
 'use strict';
 
-const os = require('node:os');
+import os from 'node:os';
+import * as Sentry from '@sentry/node';
+import HomeyModule from 'homey';
 
 if (!process.env.HOME) {
   // Sentry SDK requires the HOME env var to be set, which is not guaranteed on Homey
   process.env.HOME = os.tmpdir();
 }
 
-// eslint-disable-next-line import/no-extraneous-dependencies,node/no-unpublished-require
-const Sentry = require('@sentry/node');
-const HomeyModule = require('homey');
-
-class Log {
+export class Log {
 
   _capturedMessages = [];
   _capturedExceptions = [];
@@ -154,7 +152,6 @@ class Log {
 
     this._capturedMessages.push(message);
 
-    // eslint-disable-next-line consistent-return
     return new Promise((resolve, reject) => {
       try {
         resolve(Sentry.captureMessage(message));
@@ -180,7 +177,6 @@ class Log {
 
     this._capturedExceptions.push(err);
 
-    // eslint-disable-next-line consistent-return
     return new Promise((resolve, reject) => {
       try {
         resolve(Sentry.captureException(err));
@@ -195,7 +191,6 @@ class Log {
    * @private
    */
   static _log() {
-    // eslint-disable-next-line prefer-spread,prefer-rest-params,no-console
     console.log.bind(null, Log._logTime(), '[homey-log]').apply(null, arguments);
   }
 
@@ -204,7 +199,6 @@ class Log {
    * @private
    */
   static _error() {
-    // eslint-disable-next-line prefer-spread,prefer-rest-params,no-console
     console.error.bind(null, Log._logTime(), '[homey-log]').apply(null, arguments);
   }
 
@@ -231,7 +225,4 @@ class Log {
         return false;
     }
   }
-
 }
-
-module.exports = { Log };

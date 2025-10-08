@@ -1,12 +1,11 @@
 'use strict';
 
-// eslint-disable-next-line import/no-extraneous-dependencies,node/no-unpublished-require
-const { buildSync } = require('esbuild');
-const { execSync } = require('child_process');
-const fs = require('fs');
+import {buildSync} from 'esbuild';
+import {execSync} from 'child_process';
+import fs from 'fs';
 
 const defaultOptions = {
-  entryPoints: ['index.js'],
+  entryPoints: ['index.mjs'],
   bundle: true,
   outdir: 'build',
   platform: 'node',
@@ -42,7 +41,7 @@ fs.writeFileSync('build/esm_meta.json', JSON.stringify(esmResult.metafile));
 execSync('npm run typings:generate');
 
 // Replace HomeyInstance in typing
-const typingFile = 'build/index.d.ts';
-const data = fs.readFileSync(typingFile, 'utf8');
+const data = fs.readFileSync('build/index.d.mts', 'utf8');
+fs.rmSync('build/index.d.mts');
 const result = data.replace(/HomeyInstance/g, "import('homey/lib/Homey').default");
-fs.writeFileSync(typingFile, result, 'utf8');
+fs.writeFileSync('build/index.d.ts', result, 'utf8');
