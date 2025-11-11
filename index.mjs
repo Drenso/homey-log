@@ -95,6 +95,7 @@ export class Log {
           Sentry.nodeContextIntegration(),
         ],
         maxBreadcrumbs: 5,
+        enableMetrics: false,
       },
       ...opts,
     });
