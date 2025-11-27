@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout git repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Check whether Sentry was updated
         id: check
@@ -34,7 +34,7 @@ jobs:
     if: needs.check_if_sentry_updated.outputs.version_ok == 'false'
     steps:
       - name: Checkout git repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Set up node 18 environment
         uses: actions/setup-node@v6
