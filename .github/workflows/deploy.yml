@@ -6,22 +6,22 @@ on:
       - main
 
 jobs:
-#  check_if_sentry_updated:
-#    name: Check whether Sentry was updated
-#    outputs:
-#      version_ok: ${{ steps.check.outputs.version_ok }}
-#      sentry_version: ${{ steps.check.outputs.sentry_version }}
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout git repository
-#        uses: actions/checkout@v6
-#
-#      - name: Check whether Sentry was updated
-#        id: check
-#        run: |
-#          sentryVersion="$(jq -r '.devDependencies."@sentry/node"' package.json)"
-#          echo "version_ok=$(jq -r ".version == \"$sentryVersion\"" package.json)" >> $GITHUB_OUTPUT
-#          echo "sentry_version=$sentryVersion" >> $GITHUB_OUTPUT
+  check_if_sentry_updated:
+    name: Check whether Sentry was updated
+    outputs:
+      version_ok: ${{ steps.check.outputs.version_ok }}
+      sentry_version: ${{ steps.check.outputs.sentry_version }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout git repository
+        uses: actions/checkout@v6
+
+      - name: Check whether Sentry was updated
+        id: check
+        run: |
+          sentryVersion="$(jq -r '.devDependencies."@sentry/node"' package.json)"
+          echo "version_ok=$(jq -r ".version == \"$sentryVersion\"" package.json)" >> $GITHUB_OUTPUT
+          echo "sentry_version=$sentryVersion" >> $GITHUB_OUTPUT
 
   update_package_version:
     name: Update package version if Sentry was updated
@@ -30,8 +30,8 @@ jobs:
       contents: write
       id-token: write
     runs-on: ubuntu-latest
-#    needs: check_if_sentry_updated
-#    if: needs.check_if_sentry_updated.outputs.version_ok == 'false'
+    needs: check_if_sentry_updated
+    if: needs.check_if_sentry_updated.outputs.version_ok == 'false'
     steps:
       - name: Checkout git repository
         uses: actions/checkout@v6
