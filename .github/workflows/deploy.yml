@@ -5,27 +5,23 @@ on:
     branches:
       - main
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
-  check_if_sentry_updated:
-    name: Check whether Sentry was updated
-    outputs:
-      version_ok: ${{ steps.check.outputs.version_ok }}
-      sentry_version: ${{ steps.check.outputs.sentry_version }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout git repository
-        uses: actions/checkout@v6
-
-      - name: Check whether Sentry was updated
-        id: check
-        run: |
-          sentryVersion="$(jq -r '.devDependencies."@sentry/node"' package.json)"
-          echo "version_ok=$(jq -r ".version == \"$sentryVersion\"" package.json)" >> $GITHUB_OUTPUT
-          echo "sentry_version=$sentryVersion" >> $GITHUB_OUTPUT
+#  check_if_sentry_updated:
+#    name: Check whether Sentry was updated
+#    outputs:
+#      version_ok: ${{ steps.check.outputs.version_ok }}
+#      sentry_version: ${{ steps.check.outputs.sentry_version }}
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout git repository
+#        uses: actions/checkout@v6
+#
+#      - name: Check whether Sentry was updated
+#        id: check
+#        run: |
+#          sentryVersion="$(jq -r '.devDependencies."@sentry/node"' package.json)"
+#          echo "version_ok=$(jq -r ".version == \"$sentryVersion\"" package.json)" >> $GITHUB_OUTPUT
+#          echo "sentry_version=$sentryVersion" >> $GITHUB_OUTPUT
 
   update_package_version:
     name: Update package version if Sentry was updated
@@ -35,28 +31,28 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     needs: check_if_sentry_updated
-    if: needs.check_if_sentry_updated.outputs.version_ok == 'false'
+#    if: needs.check_if_sentry_updated.outputs.version_ok == 'false'
     steps:
       - name: Checkout git repository
         uses: actions/checkout@v6
 
-      - name: Set up node 18 environment
+      - name: Set up node 24 environment
         uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 24
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Update package.json, commit and push
-        run: |
-          updatedManifest=$(jq ".version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\"" package.json)
-          echo -E "${updatedManifest}" > package.json
-          updatedLock=$(jq ".version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\" | (.packages[] | select(.name == \"@drenso/homey-log\")).version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\"" package-lock.json)
-          echo -E "${updatedLock}" > package-lock.json
-          git config --global user.name 'Action User'
-          git config --global user.email 'noreply@drenso.nl'
-          git add package.json package-lock.json
-          git commit -m "Bump version to ${{ needs.check_if_sentry_updated.outputs.sentry_version }}"
-          git push
+#      - name: Update package.json, commit and push
+#        run: |
+#          updatedManifest=$(jq ".version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\"" package.json)
+#          echo -E "${updatedManifest}" > package.json
+#          updatedLock=$(jq ".version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\" | (.packages[] | select(.name == \"@drenso/homey-log\")).version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\"" package-lock.json)
+#          echo -E "${updatedLock}" > package-lock.json
+#          git config --global user.name 'Action User'
+#          git config --global user.email 'noreply@drenso.nl'
+#          git add package.json package-lock.json
+#          git commit -m "Bump version to ${{ needs.check_if_sentry_updated.outputs.sentry_version }}"
+#          git push
 
       - name: Build
         run: |
