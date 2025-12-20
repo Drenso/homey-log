@@ -9,6 +9,14 @@ if (!process.env.HOME) {
   process.env.HOME = os.tmpdir();
 }
 
+/**
+ * @example
+ * class MyApp extends Homey.App {
+ *   onInit() {
+ *     this.homeyLog = new Log({ homey: this.homey });
+ *   }
+ * }
+ */
 export class Log {
   _capturedMessages = [];
   _capturedExceptions = [];
@@ -17,16 +25,9 @@ export class Log {
    * Construct a new Log instance.
    * @param {object} args
    * @param {HomeyInstance} args.homey - `this.homey` instance in
-   * your app (e.g. `App#homey`/`Driver#homey`/`Device#homey`).
+   * your app (e.g. `App#homey`, `Driver#homey` or `Device#homey`).
    *
    * @param {object} [args.options] - Additional options for Sentry
-   *
-   * @example
-   * class MyApp extends Homey.App {
-   *   onInit() {
-   *     this.homeyLog = new Log({ homey: this.homey });
-   *   }
-   * }
    */
   constructor({ homey, options }) {
     if (typeof homey === 'undefined') {

@@ -64,6 +64,6 @@ This version has replaced the raven SDK with [@sentry/node](https://docs.sentry.
 - If you were passing custom options, you will need to review them.
 - `setExtra` is deprecated by Sentry and has been removed.
 
-### 8._ / 9._
+### 8._ / 9._ / 10._
 
 This package will now follow the Sentry version included.
