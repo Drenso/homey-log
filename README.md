@@ -1,6 +1,8 @@
 # Homey Log
 
-[![npm](https://img.shields.io/npm/v/@drenso/homey-log)](https://www.npmjs.com/package/@drenso/homey-log) [![NPM](https://github.com/Drenso/node-homey-log/actions/workflows/deploy.yml/badge.svg)](https://github.com/Drenso/node-homey-log/actions/workflows/deploy.yml) [![pages-build-deployment](https://github.com/Drenso/homey-log/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/Drenso/homey-log/actions/workflows/pages/pages-build-deployment)
+[![npm](https://img.shields.io/npm/v/@drenso/homey-log)](https://www.npmjs.com/package/@drenso/homey-log)
+[![NPM](https://github.com/Drenso/node-homey-log/actions/workflows/deploy.yml/badge.svg)](https://github.com/Drenso/node-homey-log/actions/workflows/deploy.yml)
+[![Pages](https://github.com/Drenso/homey-log/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/Drenso/homey-log/actions/workflows/docs.yml)
 
 This module can be used in a Homey App to send events to [Sentry](http://sentry.io/).
 
