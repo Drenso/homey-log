@@ -2,7 +2,6 @@
   "extends": [
     "config:recommended",
     ":automergeDisabled",
-    ":disableDevDependencies",
     ":labels(Maintenance,RenovateBot)"
   ],
   "constraints": {
