@@ -1,6 +1,6 @@
 {
   "name": "@drenso/homey-log",
-  "version": "10.38.0",
+  "version": "10.39.0",
   "description": "Interface with Sentry for Homey",
   "main": "./build/index.js",
   "module": "./build/index.mjs",
