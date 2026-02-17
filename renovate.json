@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "config:recommended",
-    ":automergeDisabled",
-    ":labels(Maintenance,RenovateBot)"
-  ],
+  "extends": ["config:recommended", ":automergeDisabled", ":labels(Maintenance,RenovateBot)"],
   "constraints": {
     "node": "^16",
     "npm": "^9"
