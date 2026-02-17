@@ -69,3 +69,5 @@ This version has replaced the raven SDK with [@sentry/node](https://docs.sentry.
 ### 8._ / 9._ / 10._
 
 This package will now follow the Sentry version included.
+
+With 10.39 and onwards, we're using `@sentry/node-core/light` for this library.
