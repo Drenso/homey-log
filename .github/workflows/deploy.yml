@@ -19,7 +19,7 @@ jobs:
       - name: Check whether Sentry was updated
         id: check
         run: |
-          sentryVersion="$(jq -r '.devDependencies."@sentry/node"' package.json)"
+          sentryVersion="$(jq -r '.devDependencies."@sentry/node-core"' package.json)"
           echo "version_ok=$(jq -r ".version == \"$sentryVersion\"" package.json)" >> $GITHUB_OUTPUT
           echo "sentry_version=$sentryVersion" >> $GITHUB_OUTPUT
 

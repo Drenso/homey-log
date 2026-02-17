@@ -1,7 +1,7 @@
 'use strict';
 
 import os from 'node:os';
-import * as Sentry from '@sentry/node';
+import * as Sentry from '@sentry/node-core/light';
 import HomeyModule from 'homey';
 
 if (!process.env.HOME) {
