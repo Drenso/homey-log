@@ -93,7 +93,10 @@ export class Log {
           Sentry.onUnhandledRejectionIntegration(),
           Sentry.contextLinesIntegration(),
           Sentry.localVariablesIntegration(),
-          Sentry.nodeContextIntegration(),
+          Sentry.nodeContextIntegration({
+            app: false,
+            cloudResource: false,
+          }),
         ],
         maxBreadcrumbs: 5,
         enableMetrics: false,
