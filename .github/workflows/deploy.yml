@@ -10,7 +10,7 @@ jobs:
     name: Check whether Sentry was updated
     outputs:
       version_ok: ${{ steps.check.outputs.version_ok }}
-      sentry_version: ${{ steps.check.outputs.sentry_version }}
+      new_version: ${{ steps.check.outputs.new_version }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout git repository
@@ -20,8 +20,17 @@ jobs:
         id: check
         run: |
           sentryVersion="$(jq -r '.devDependencies."@sentry/node-core"' package.json)"
-          echo "version_ok=$(jq -r ".version == \"$sentryVersion\"" package.json)" >> $GITHUB_OUTPUT
-          echo "sentry_version=$sentryVersion" >> $GITHUB_OUTPUT
+          sentryMajor="$(echo $sentryVersion | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+)/\1/g')"
+          sentryMinor="$(echo $sentryVersion | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+)/\2/g')"
+          sentryPatch="$(echo $sentryVersion | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+)/\3/g')"
+          newSentryBaseVersion="$(echo $sentryMajor.$(($sentryMinor * 100 + $sentryPatch)))"
+
+          currentVersion=$(jq -r '.version' package.json)
+          currentSentryBaseVersion="$(echo $currentVersion | sed -r 's/([0-9]+)\.([0-9]+)\.([0-9]+)/\1\.\2/g')"
+
+          echo "version_ok=$(jq -r "\"$currentSentryBaseVersion\" == \"$newSentryBaseVersion\"" package.json)" >> $GITHUB_OUTPUT
+
+          echo "new_version=$newSentryBaseVersion.0" >> $GITHUB_OUTPUT
 
   update_package_version:
     name: Update package version if Sentry was updated
@@ -44,14 +53,14 @@ jobs:
 
       - name: Update package.json, commit and push
         run: |
-          updatedManifest=$(jq ".version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\"" package.json)
+          updatedManifest=$(jq ".version = \"${{ needs.check_if_sentry_updated.outputs.new_version }}\"" package.json)
           echo -E "${updatedManifest}" > package.json
-          updatedLock=$(jq ".version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\" | (.packages[] | select(.name == \"@drenso/homey-log\")).version = \"${{ needs.check_if_sentry_updated.outputs.sentry_version }}\"" package-lock.json)
+          updatedLock=$(jq ".version = \"${{ needs.check_if_sentry_updated.outputs.new_version }}\" | (.packages[] | select(.name == \"@drenso/homey-log\")).version = \"${{ needs.check_if_sentry_updated.outputs.new_version }}\"" package-lock.json)
           echo -E "${updatedLock}" > package-lock.json
           git config --global user.name 'Action User'
           git config --global user.email 'noreply@drenso.nl'
           git add package.json package-lock.json
-          git commit -m "Bump version to ${{ needs.check_if_sentry_updated.outputs.sentry_version }}"
+          git commit -m "Bump version to ${{ needs.check_if_sentry_updated.outputs.new_version }}"
           git push
 
       - name: Build
@@ -68,7 +77,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           make_latest: true
-          tag_name: v${{ needs.check_if_sentry_updated.outputs.sentry_version }} # update with known version
+          tag_name: v${{ needs.check_if_sentry_updated.outputs.new_version }} # update with known version
 
       - name: Trigger docs deployment
         run: gh workflow run docs.yml
