@@ -37,7 +37,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           make_latest: true
-          tag_name: ${{ GITHUB_REF_NAME }}
+          tag_name: ${{ env.GITHUB_REF_NAME }}
 
       - name: Trigger docs deployment
         run: gh workflow run docs.yml
