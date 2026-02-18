@@ -7,7 +7,7 @@ on:
 
 jobs:
   publish-release:
-    name: Update package version if Sentry was updated
+    name: Release manual tag
     permissions:
       actions: write
       contents: write
