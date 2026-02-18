@@ -14,7 +14,7 @@ jobs:
       version_ok: ${{ steps.check.outputs.version_ok }}
       new_version: ${{ steps.check.outputs.new_version }}
     runs-on: ubuntu-latest
-    if: !(startsWith(github.event.ref, 'refs/tags/v'))
+    if: "!(startsWith(github.event.ref, 'refs/tags/v'))"
     steps:
       - name: Checkout git repository
         uses: actions/checkout@v6
@@ -43,7 +43,7 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     needs: check_if_sentry_updated
-    if: !(startsWith(github.event.ref, 'refs/tags/v')) && needs.check_if_sentry_updated.outputs.version_ok == 'false'
+    if: "!(startsWith(github.event.ref, 'refs/tags/v')) && needs.check_if_sentry_updated.outputs.version_ok == 'false'"
     steps:
       - name: Checkout git repository
         uses: actions/checkout@v6
