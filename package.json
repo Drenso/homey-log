@@ -39,7 +39,7 @@
     "eslint": "10.0.2",
     "eslint-config-prettier": "10.1.8",
     "globals": "17.4.0",
-    "homey": "4.0.9",
+    "homey": "4.0.11",
     "jsdoc": "4.0.5",
     "jsdoc-ts-utils": "6.0.0",
     "npm-watch": "0.13.0",
