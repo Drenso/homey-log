@@ -1,7 +1,8 @@
 .idea
 .editorconfig
-.eslintignore
-.eslintrc.json
+.prettierignore
+.prettierrc
+.eslint.config.mjs
 .github
 /build/cjs_meta.json
 /build/esm_meta.json
