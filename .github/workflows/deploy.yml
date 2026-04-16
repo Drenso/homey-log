@@ -17,7 +17,7 @@ jobs:
     if: "!(startsWith(github.event.ref, 'refs/tags/v'))"
     steps:
       - name: Checkout git repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
 
       - name: Check whether Sentry was updated
         id: check
@@ -46,10 +46,10 @@ jobs:
     if: "!(startsWith(github.event.ref, 'refs/tags/v')) && needs.check_if_sentry_updated.outputs.version_ok == 'false'"
     steps:
       - name: Checkout git repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
 
       - name: Set up node 24 environment
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.3.0
         with:
           node-version: 24.14.1
           registry-url: 'https://registry.npmjs.org'
@@ -77,7 +77,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
       - name: Generate Github Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.6.2
         with:
           make_latest: true
           tag_name: v${{ needs.check_if_sentry_updated.outputs.new_version }} # update with known version
@@ -97,10 +97,10 @@ jobs:
     if: startsWith(github.event.ref, 'refs/tags/v')
     steps:
       - name: Checkout git repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v6.0.2
 
       - name: Set up node 24 environment
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v6.3.0
         with:
           node-version: 24.14.1
           registry-url: 'https://registry.npmjs.org'
@@ -116,7 +116,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
       - name: Generate Github Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.6.2
         with:
           make_latest: true
           tag_name: ${{ env.GITHUB_REF_NAME }}
