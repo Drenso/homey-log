@@ -21,7 +21,7 @@ jobs:
 
       # Setup
       - name: Setup Node.js
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with:
           node-version: 24.15.0
           registry-url: 'https://npm.pkg.github.com'
