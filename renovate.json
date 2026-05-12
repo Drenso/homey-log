@@ -1,8 +1,8 @@
 {
   "extends": ["config:recommended", ":automergeDisabled", ":labels(Maintenance,RenovateBot)"],
   "constraints": {
-    "node": "^16",
-    "npm": "^9"
+    "node": "16.20.2",
+    "npm": "9.9.4"
   },
   "dependencyDashboard": true,
   "dependencyDashboardLabels": ["Maintenance", "RenovateBot"],
