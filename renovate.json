@@ -49,6 +49,7 @@
     },
     {
       "enabled": false,
+      "matchManagers": ["renovate-config"],
       "matchDepTypes": ["tool-constraint"]
   ]
 }
