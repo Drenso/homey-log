@@ -46,6 +46,9 @@
       "enabled": true,
       "minimumReleaseAge": "1 day",
       "matchPackageNames": ["homey{/,}**", "@sentry{/,}**"]
-    }
+    },
+    {
+      "enabled": false,
+      "matchDepTypes": ["tool-constraint"]
   ]
 }
