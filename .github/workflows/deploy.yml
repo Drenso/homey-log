@@ -77,7 +77,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
       - name: Generate Github Release
-        uses: softprops/action-gh-release@v3.0.0
+        uses: softprops/action-gh-release@v3.0.1
         with:
           make_latest: true
           tag_name: v${{ needs.check_if_sentry_updated.outputs.new_version }} # update with known version
@@ -116,7 +116,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
       - name: Generate Github Release
-        uses: softprops/action-gh-release@v3.0.0
+        uses: softprops/action-gh-release@v3.0.1
         with:
           make_latest: true
           tag_name: ${{ env.GITHUB_REF_NAME }}
