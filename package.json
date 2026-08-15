@@ -35,7 +35,7 @@
     "@sentry/node-core": "10.70.0",
     "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.12",
     "@types/node": "24.10.13",
-    "esbuild": "0.28.1",
+    "esbuild": "0.28.2",
     "eslint": "10.8.1",
     "eslint-config-prettier": "10.1.8",
     "globals": "17.9.0",
