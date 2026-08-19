@@ -38,7 +38,7 @@
     "esbuild": "0.28.2",
     "eslint": "10.8.1",
     "eslint-config-prettier": "10.1.8",
-    "globals": "17.10.0",
+    "globals": "17.11.0",
     "homey": "4.4.2",
     "jsdoc": "4.0.5",
     "jsdoc-ts-utils": "6.0.0",
