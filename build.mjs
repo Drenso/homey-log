@@ -43,5 +43,5 @@ execSync('npm run typings:generate');
 // Replace HomeyInstance in typing
 const data = fs.readFileSync('build/index.d.mts', 'utf8');
 fs.rmSync('build/index.d.mts');
-const result = data.replace(/HomeyInstance/g, "import('homey/lib/Homey').default");
+const result = data.replace(/HomeyInstance/g, "import('homey/lib/Homey').App['homey']");
 fs.writeFileSync('build/index.d.ts', result, 'utf8');
