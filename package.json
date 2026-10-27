@@ -33,7 +33,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@sentry/node-core": "10.75.2",
-    "@types/homey": "npm:homey-apps-sdk-v3-types@0.3.12",
+    "@types/homey": "npm:homey-apps-sdk-v3-types@1.8.1",
     "@types/node": "24.10.13",
     "esbuild": "0.28.2",
     "eslint": "10.13.0",
