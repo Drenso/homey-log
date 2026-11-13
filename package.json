@@ -44,7 +44,7 @@
     "jsdoc-ts-utils": "6.0.0",
     "npm-watch": "0.13.0",
     "prettier": "3.8.2",
-    "serve": "14.2.6",
+    "serve": "14.2.7",
     "typescript": "7.0.2",
     "watch": "1.0.2",
     "ws": "8.22.1"
